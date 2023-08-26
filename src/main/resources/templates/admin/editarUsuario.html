@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar Usuario</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-4 text-center">Actualizar Usuario</h4>
+          <form action="/admin/edit" th:object="${usuario}">
+            <input type="hidden" name="id" th:value="${usuario.id}">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" placeholder="Ingrese el nombre">
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" placeholder="Ingrese el apellido">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" name="email" th:field="*{email}" placeholder="Ingrese el correo electrónico">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password" th:field="*{password}" placeholder="Ingrese la contraseña">
+            </div>
+            <div class="mb-3">
+              <label for="perfil" class="form-label">Rol</label>
+              <select class="form-control" id="perfil" name="perfil">
+                <option value="ADMIN">Administrador</option>
+                <option value="USER">Usuario</option>
+                <option value="VISITANTE">Visitante</option>
+              </select>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
